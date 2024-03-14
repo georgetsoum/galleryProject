@@ -3,13 +3,13 @@ import {useLocation} from 'wouter';
 import Button from '@mui/material/Button';
 
 
-function SelectExhibitButton({ route, exhibitId, exhibitionId }) {
+function ExhibitNavigationButton({ route, exhibitId, exhibitionId }) {
   const [location, setLocation] = useLocation();
   
  
-  
+  console.log(location)
   function navigateToRoute() {
-    setLocation(route + `/${exhibitionId}` + `/${exhibitId}`);
+    setLocation(location+'/' +route +`/${exhibitId}`);
   }
   
 
@@ -34,4 +34,4 @@ function SelectExhibitButton({ route, exhibitId, exhibitionId }) {
   );
 }
 
-export default SelectExhibitButton;
+export default ExhibitNavigationButton;

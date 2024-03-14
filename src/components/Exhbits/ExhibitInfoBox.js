@@ -3,7 +3,7 @@ import ExhibitNavigationButton from './ExhibitNavigationButton';
 import { useContext, useState } from 'react';
 import {routes} from '../../config/routes';
 
-function ExhibitBox(props){
+function ExhibitInfoBox(props){
     const [zoomLevel, setZoomLevel] = useState(1);
     const handleMouseOver = () => {
         setZoomLevel(1.070); 
@@ -11,7 +11,7 @@ function ExhibitBox(props){
       const handleMouseOut = () => {
         setZoomLevel(1);
       };
-      //console.log(props)
+      
       const exhibitionIdList = data.exhibitions.map(({ id }) => ({ id }));
     return( 
         <div style={{
@@ -36,9 +36,9 @@ function ExhibitBox(props){
                   >
             <img src={'/'+props.image} alt={props.title} width={450} height={400} />
             <h5 style={{margin:"10px"}}>{props.title}</h5>
-            <ExhibitNavigationButton route={props.route} exhibitId={props.id} exhibitionId={props.exhibitionid}/>
+            <ExhibitNavigationButton route={props.route} id={props.id}/>
           </div>
     );
 }
 
-export default ExhibitBox;
+export default ExhibitInfoBox;

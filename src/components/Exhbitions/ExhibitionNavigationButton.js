@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 
 function ExhibitionNavigationButton({ route, id }) {
   const [location, setLocation] = useLocation();
-  //console.log(id);
+  console.log(route);
   function navigateToRoute() {
     setLocation(route + `/${id}`);
     //console.log(route+ `/${id}`);

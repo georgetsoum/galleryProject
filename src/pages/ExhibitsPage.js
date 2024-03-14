@@ -53,8 +53,8 @@ function ExhibitsPage() {
       }}
     >
       {exhibition.exhibits.map((exhibit) => (
-        //console.log(exhibit.id),
-        <ExhibitBox key ={exhibit.id} id={exhibit.id} image ={exhibit.image} title ={exhibit.title} />
+        //console.log(exhibition.id , 'here i am'),
+        <ExhibitBox key ={exhibit.id} route = {'exhibit'} id={exhibit.id} image ={exhibit.image} title ={exhibit.title} exhibitionid={exhibition.id} />
             
           ))}
     </div>

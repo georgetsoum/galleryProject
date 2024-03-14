@@ -7,8 +7,8 @@ import back1 from '../imgs/back1.jpeg';
 
 
 function ExhibitsInfoPage() {
-  const { exhibitionid } = useParams(); // Access route parameter 'id'
-  console.log(exhibitionid);
+  const { exhibitionid, exhibitid} = useParams(); // Access route parameter 'id'
+  console.log(exhibitionid, exhibitid);
   const exhibition = data.exhibitions.find((exhibition) => exhibition.id === parseInt(exhibitionid))
   console.log('exhibition', exhibition)
   //console.log(props.mach.params)
@@ -50,7 +50,7 @@ function ExhibitsInfoPage() {
     >
       {exhibition.exhibits.map((exhibit) => (
         //console.log(exhibit.image),
-        <ExhibitBox id={exhibit.id} image ={exhibit.image} title ={exhibit.title} />
+        <ExhibitBox id={exhibit.id}  image ={exhibit.image} title ={exhibit.title} />
             
           ))}
     </div>
