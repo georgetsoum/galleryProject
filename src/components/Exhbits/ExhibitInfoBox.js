@@ -4,39 +4,47 @@ import { useContext, useState } from 'react';
 import {routes} from '../../config/routes';
 
 function ExhibitInfoBox(props){
-    const [zoomLevel, setZoomLevel] = useState(1);
-    const handleMouseOver = () => {
-        setZoomLevel(1.070); 
+    const [click, setclick] = useState(false);
+    const handleClick = () => {
+        setclick(!click); 
+        console.log(click);
+       click=true;
       };
-      const handleMouseOut = () => {
-        setZoomLevel(1);
-      };
-      
+      console.log(props)
       const exhibitionIdList = data.exhibitions.map(({ id }) => ({ id }));
     return( 
+      <div style={{display:'flex',
+      flexDirection :'row',
+      fontSize: '35px',
+      Width: '250px',
+      height: 'contentheight',
+      backgroundColor: 'rgba(1, 1, 0, 0.6)',
+      }}>
+       
         <div style={{
                 display:'flex',
                 flexDirection :'column',
                 backgroundColor: 'rgba(1, 1, 0, 0.4)',
-                // backgroundPositionY: '50%',
-                // backgroundSize: "cover",
                  alignItems: 'center',
                 // width: '100%',
                 // justifyContent: 'end',
                 // marginTop: '200px',
                  border: '3px solid black',
                  //height: '300px',
-                 transition: 'transform 0.3s ease',
-                 transform: `scale(${zoomLevel})`,
                 width: '250',
                 height: 'contentheight'
                   }}
-                  onMouseOver={handleMouseOver}
-                  onMouseOut={handleMouseOut}
+                  onClick={handleClick}
+
                   >
             <img src={'/'+props.image} alt={props.title} width={450} height={400} />
             <h5 style={{margin:"10px"}}>{props.title}</h5>
-            <ExhibitNavigationButton route={props.route} id={props.id}/>
+          </div>
+          <p style={{margin:"10px",
+          display: 'flex',
+        textAlign:'center',
+        //width: '1000px',
+        alignContent:'center'}}>{props.description}</p>
           </div>
     );
 }

@@ -1,9 +1,12 @@
 import { colors } from '../styles/colors.js';
 import { useParams } from 'wouter';
 import { useContext } from 'react';
+import { routes} from '../config/routes.js';
 import ExhibitBox from '../components/Exhbits/ExhibitBox.js'
 import {data} from '../data/data.js'
 import back1 from '../imgs/back1.jpeg';
+import ExhibitInfoBox from '../components/Exhbits/ExhibitInfoBox.js';
+import BackExhibitionNavigationButton from '../components/BackExhibitionNavigationButton.js';
 
 
 function ExhibitsInfoPage() {
@@ -11,13 +14,6 @@ function ExhibitsInfoPage() {
   console.log(exhibitionid, exhibitid);
   const exhibition = data.exhibitions.find((exhibition) => exhibition.id === parseInt(exhibitionid))
   console.log('exhibition', exhibition)
-  //console.log(props.mach.params)
-  //const exhibitionIdList = data.exhibitions.map(({ id }) => ({ id }));
-  //console.log(exhibitionIdList)
-  //const [match, params] = useParams();
-  //console.log(params)
-  //  exhibition.exhibits.map((exhibit) => (
-  //      console.log(exhibit)))
   return (
     <div style={{
     backgroundImage: `url(${back1})`,
@@ -31,7 +27,7 @@ function ExhibitsInfoPage() {
       justifyContent: 'center',
        color: colors.white,
       }}>
-        List of exhibits
+        Exhibit Info
       </h1>
     <div
       style={{
@@ -50,9 +46,12 @@ function ExhibitsInfoPage() {
     >
       {exhibition.exhibits.map((exhibit) => (
         //console.log(exhibit.image),
-        <ExhibitBox id={exhibit.id}  image ={exhibit.image} title ={exhibit.title} />
-            
+        console.log(exhibit.id, parseInt(exhibitid)),
+        (exhibit.id === parseInt(exhibitid)) && (
+        <ExhibitInfoBox id={exhibit.id}  image ={exhibit.image} title ={exhibit.title} description={exhibit.description} />
+      )
           ))}
+          <BackExhibitionNavigationButton route={routes.exhibitions}/>
     </div>
     </div>
   );

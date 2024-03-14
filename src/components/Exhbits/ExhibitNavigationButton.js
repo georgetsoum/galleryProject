@@ -7,7 +7,7 @@ function ExhibitNavigationButton({ route, exhibitId, exhibitionId }) {
   const [location, setLocation] = useLocation();
   
  
-  console.log(location)
+  //console.log(location)
   function navigateToRoute() {
     setLocation(location+'/' +route +`/${exhibitId}`);
   }

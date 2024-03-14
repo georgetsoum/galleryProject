@@ -38,7 +38,7 @@ function navigateToRoute() {
       onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
     >
-      Navigate to the Exhbitions
+      Navigate to the Exhibitions
     </button>
   );
 }
